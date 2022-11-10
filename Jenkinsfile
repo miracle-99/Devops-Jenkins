@@ -2,14 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Git Clone') {
             steps {
-                echo 'Building..'
+                echo 'Cloning'
             }
         }
         stage('Makefile') {
             steps {
-                bash 'make all'
+                sh 'make all'
+            }
+        }
+        stage('Building') {
+            steps {
+                echo 'Build Successful'
             }
         }
     }
